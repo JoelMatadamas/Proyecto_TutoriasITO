@@ -6,6 +6,23 @@ El programa de tutorías en Java es una aplicación robusta diseñada para gesti
 
 En la versión para tutores, el programa presenta los cursos que han sido asignados a cada tutor. Los tutores pueden abrir archivos PDF relacionados con los cursos y consultar información detallada de los alumnos inscritos en sus cursos. La interfaz es intuitiva y permite una navegación fácil para realizar todas estas acciones. Este enfoque asegura que los administradores puedan mantener una supervisión y gestión detallada de todos los componentes educativos, mientras que los tutores pueden centrarse en sus cursos y los alumnos que enseñan. Con esta organización, el programa facilita una gestión educativa eficiente y estructurada, adaptándose a las necesidades específicas de administradores y tutores.
 
+
+## Compatibilidad:
+### Version de Java
+ - JDK 18
+ - mySQL Workbench 8.0 CE
+
+### Librerias utilizadas
+ - mysql-connector-j-9.0.0
+ - jcalendar-1.4
+ - TimeChooser
+ - pdfbox-app-3.0.2
+ - javax-inject
+ - javax.activation-1.1.0v201105071233
+ - javax-ejb
+ - javax.faces-api-2.0
+ - mail
+
 ## Como utilizar
 
 Para utilizar el programa de tutorías en Java, siga las instrucciones detalladas a continuación. Al iniciar la aplicación, se le pedirá que ingrese su nombre de usuario y contraseña en la pantalla de inicio de sesión. Dependiendo de su nivel de acceso, será dirigido a la versión correspondiente del programa: administrador o tutor.
