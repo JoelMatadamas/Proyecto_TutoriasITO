@@ -1092,3 +1092,58 @@ La clase `VentanaTutores` representa la ventana principal para que un tutor gest
 
 
 ## Vista
+
+### Clase AgregarAdmin
+![Captura de pantalla 2024-08-03 170619](https://github.com/user-attachments/assets/21d24317-173b-4d52-959e-2055063438e1)
+
+### Clase AgregarAlumno
+![Captura de pantalla 2024-08-03 170629](https://github.com/user-attachments/assets/57677da5-dcae-4797-89f7-44a6ba5d9402)
+
+### Clase AgregarTutor
+![Captura de pantalla 2024-08-03 170635](https://github.com/user-attachments/assets/c77ec97f-5fff-4e32-8feb-113550f4abde)
+
+### Clase AsignarMaterias
+![Captura de pantalla 2024-08-03 170645](https://github.com/user-attachments/assets/35ba4193-9097-4863-aa64-9f03730a1531)
+
+### Clase Confirmacion
+![Captura de pantalla 2024-08-03 170651](https://github.com/user-attachments/assets/770aab15-fc65-4a1f-b4a4-40290581d5bd)
+
+### Clase CrearCurso
+![Captura de pantalla 2024-08-03 170701](https://github.com/user-attachments/assets/b2d4307e-94a8-4d56-9a08-9815f167ba17)
+
+### Clase LectorPDF
+![Captura de pantalla 2024-08-03 170709](https://github.com/user-attachments/assets/0442056b-bba9-42f8-bcf5-2561cc8ecac5)
+
+### Clase Lista
+![Captura de pantalla 2024-08-03 170716](https://github.com/user-attachments/assets/e953e615-2da8-41c2-b927-627bd40d7ead)
+
+### Clase Loggin
+![Captura de pantalla 2024-08-03 170723](https://github.com/user-attachments/assets/64797c85-e321-4532-aa7e-4c5962a78c81)
+
+### Clase MenuPrincipalAdmin
+![Captura de pantalla 2024-08-03 170731](https://github.com/user-attachments/assets/08560b80-f3f9-484c-b79d-8ddf72cf8fb2)
+
+### Clase MenuPrincipalTutor
+![Captura de pantalla 2024-08-03 170737](https://github.com/user-attachments/assets/f4f58afb-7335-4235-bfce-dfdb6268c085)
+
+### Clase VentanaAlumnos
+![Captura de pantalla 2024-08-03 170751](https://github.com/user-attachments/assets/f3da42e4-655a-4f1b-8a64-dd8d643c2e08)
+
+### Clase VentaMisAlumnosTutor
+![Captura de pantalla 2024-08-03 170757](https://github.com/user-attachments/assets/33359db9-c55f-4e7c-95b6-a1c648ab78cf)
+
+### Clase VentanaMaterias
+![Captura de pantalla 2024-08-03 170804](https://github.com/user-attachments/assets/a44482d0-ce00-4ac8-9e1f-e2df444db875)
+
+### Clase VentanaMisClasesTutor
+![Captura de pantalla 2024-08-03 170811](https://github.com/user-attachments/assets/1577fde4-1be0-475e-b780-7bbfda68138c)
+
+### ClaseRecursos
+![Captura de pantalla 2024-08-03 170820](https://github.com/user-attachments/assets/9e1a3acd-71b0-4cf8-bd02-cf04a8725443)
+
+### VentanaTutores
+![Captura de pantalla 2024-08-03 170826](https://github.com/user-attachments/assets/63e6dc17-9dc6-408f-b062-0c6ea556e77f)
+
+# Autores
+- ** Matadamas Cervantes Joel Cristhian **
+- ** Luisa Michel Mendez Mendoza **
