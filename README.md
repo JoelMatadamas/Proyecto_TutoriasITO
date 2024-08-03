@@ -1165,5 +1165,5 @@ La clase `VentanaTutores` representa la ventana principal para que un tutor gest
 ![Captura de pantalla 2024-08-03 170826](https://github.com/user-attachments/assets/63e6dc17-9dc6-408f-b062-0c6ea556e77f)
 
 # Autores
-- ** Matadamas Cervantes Joel Cristhian **
-- ** Luisa Michel Mendez Mendoza **
+- **Matadamas Cervantes Joel Cristhian**
+- **Luisa Michel Mendez Mendoza**
