@@ -538,3 +538,557 @@ La clase `CrearCurso` es un cuadro de diálogo que permite a los usuarios crear 
 | `actualizarLabels()`               | Actualiza los labels con la información de la materia seleccionada. |
 | `cargarTutores()`                  | Carga los tutores disponibles en el `cboTutor` desde la base de datos. |
 | `txtAulaMouseClicked(MouseEvent evt)` | Limpia el campo de texto del aula cuando se hace clic.       |
+
+
+#### Clase LectorPDF
+##### Descripción de la clase `LectorPDF`
+
+La clase `LectorPDF` es un marco interno que permite visualizar un archivo PDF en una interfaz gráfica. Carga el archivo PDF y renderiza cada página como una imagen, que se muestra en un panel desplazable.
+
+##### Atributos
+| Atributo               | Tipo                       | Descripción                                             |
+|------------------------|---------------------------|---------------------------------------------------------|
+| `titulo`               | `String`                  | Título del `JInternalFrame`.                            |
+| `archivoPdf`           | `File`                    | Archivo PDF que se va a visualizar.                    |
+
+##### Métodos públicos
+| Método                             | Retorno    | Descripción                                                      |
+|------------------------------------|------------|------------------------------------------------------------------|
+| `LectorPDF(String titulo, File archivoPdf)` | `void`   | Constructor que inicializa el `JInternalFrame` y carga el PDF.  |
+
+##### Métodos privados
+| Método                             | Descripción                                                      |
+|------------------------------------|------------------------------------------------------------------|
+| `initUI(File pdfFile)`            | Inicializa la interfaz de usuario y renderiza las páginas del PDF. |
+| `resize(BufferedImage img, double scale)` | Redimensiona la imagen a un nuevo tamaño basado en la escala proporcionada. |
+
+#### Clase 
+##### Descripción de la clase `Lista`
+
+La clase `Lista` es un cuadro de diálogo que muestra una lista de alumnos asociados a un curso específico. Permite cargar los datos de los alumnos en una tabla y verificar si hay alumnos disponibles para el curso.
+
+##### Atributos
+| Atributo               | Tipo                       | Descripción                                             |
+|------------------------|---------------------------|---------------------------------------------------------|
+| `curso`                | `Curso`                   | Objeto que representa el curso asociado a la lista.     |
+| `alumno`               | `Alumno`                  | Objeto que representa a un alumno.                       |
+| `alumnos`              | `AccesoAlumnos`          | Objeto para acceder a la base de datos de alumnos.      |
+| `listaAlumnos`        | `List<Alumno>`            | Lista de alumnos asociados al curso.                     |
+| `existen`             | `boolean`                 | Indica si hay alumnos en la lista.                       |
+
+##### Métodos públicos
+| Método                             | Retorno    | Descripción                                                      |
+|------------------------------------|------------|------------------------------------------------------------------|
+| `Lista(java.awt.Frame parent, boolean modal)` | `void`   | Constructor que inicializa el cuadro de diálogo y sus componentes. |
+| `obtenerCurso(Curso curso)`        | `void`     | Obtiene el curso y carga los alumnos asociados a este en la tabla. |
+| `hayAlumnos()`                     | `boolean`  | Retorna true si hay alumnos en la lista, false de lo contrario.  |
+
+##### Eventos
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `jButton1ActionPerformed(ActionEvent evt)` | Cierra el cuadro de diálogo.                                   |
+
+#### Clase Loggin
+##### Descripción de la clase `Loggin`
+
+La clase `Loggin` es una ventana de inicio de sesión que permite a los usuarios autenticarse en la aplicación. La clase incluye validación de correo electrónico y manejo de diferentes niveles de usuario para redirigir a la interfaz correspondiente.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `presionado`                 | `boolean`                 | Indica si se ha presionado el campo de correo.       |
+| `c1`                         | `boolean`                 | Indica si se ha presionado el campo de contraseña.    |
+| `vc`                          | `ValidacionCorreo`        | Objeto para validar el formato del correo electrónico. |
+| `accu`                        | `AccesoUsuarios`          | Objeto para acceder a la base de datos de usuarios.    |
+| `usuario`                     | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+| `correoelectronico`          | `String`                  | Almacena el correo electrónico ingresado.              |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `Loggin()`                           | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `btnCancelarActionPerformed(ActionEvent evt)` | `void` | Cierra la ventana de inicio de sesión.                    |
+| `btnAceptarActionPerformed(ActionEvent evt)` | `void` | Verifica las credenciales del usuario y redirige según el nivel. |
+| `chkMostrarContraActionPerformed(ActionEvent evt)` | `void` | Muestra u oculta la contraseña según el estado del checkbox. |
+| `txtCorreoMouseClicked(MouseEvent evt)` | `void` | Limpia el campo de correo al hacer clic.                  |
+| `txtContraMouseClicked(MouseEvent evt)` | `void` | Limpia el campo de contraseña al hacer clic.               |
+| `txtCorreoKeyPressed(KeyEvent evt)`   | `void`     | Limpia el campo de correo al presionar una tecla.         |
+| `txtCorreoKeyReleased(KeyEvent evt)`  | `void`     | Valida el correo electrónico al soltar una tecla y habilita el botón aceptar. |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `btnCancelarActionPerformed(ActionEvent evt)` | Maneja la acción del botón cancelar.                     |
+| `btnAceptarActionPerformed(ActionEvent evt)` | Maneja la acción del botón aceptar.                      |
+| `chkMostrarContraActionPerformed(ActionEvent evt)` | Cambia la visibilidad de la contraseña.                 |
+| `txtCorreoMouseClicked(MouseEvent evt)` | Maneja el evento de clic en el campo de correo.         |
+| `txtContraMouseClicked(MouseEvent evt)` | Maneja el evento de clic en el campo de contraseña.      |
+| `txtCorreoKeyPressed(KeyEvent evt)`   | Maneja el evento de presionar una tecla en el campo de correo. |
+| `txtCorreoKeyReleased(KeyEvent evt)`  | Maneja el evento de soltar una tecla en el campo de correo. |
+
+#### Clase MenuPrincipalAdmin
+##### Descripción de la clase `MenuPrincipalAdmin`
+
+La clase `MenuPrincipalAdmin` representa la ventana principal para los administradores en la aplicación. Proporciona un menú que permite la navegación hacia diferentes secciones, como alumnos, tutores y materias, y también incluye opciones de configuración y cierre de sesión.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `lblmenuBarras`              | `JLabel`                  | Etiqueta que muestra un icono para el menú.           |
+| `menuba`                     | `ImageIcon`               | Icono del menú que se utiliza en la interfaz.         |
+| `configclick`                | `boolean`                 | Indica si el menú de opciones de configuración está visible. |
+| `usuario`                    | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `MenuPrincipalAdmin()`               | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+| `asignarUsuario(Usuario usuario)`    | `void`     | Asigna un usuario a la interfaz y muestra su nombre.       |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | `void` | Oculta el menú y muestra la barra de menú.               |
+| `lblConfigMouseClicked(MouseEvent evt)` | `void` | Muestra u oculta el menú de opciones de configuración.    |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | `void` | Cierra sesión y regresa a la ventana de inicio de sesión. |
+| `lblAlumnosMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre la opción "Alumnos". |
+| `lblAlumnosMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre la opción "Alumnos". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre la opción "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre la opción "Tutores". |
+| `lblMateriasMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre la opción "Materias". |
+| `lblMateriasMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre la opción "Materias". |
+| `lblAlumnosMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de alumnos y cierra la ventana actual.   |
+| `lblTutoresMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de tutores y cierra la ventana actual.   |
+| `lblMateriasMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de materias y cierra la ventana actual.   |
+| `menuNuevoAdminActionPerformed(ActionEvent evt)` | `void` | Abre el diálogo para agregar un nuevo administrador.      |
+| `menuBarrasMouseClicked(MouseEvent e)` | `void` | Muestra el panel del menú y oculta la barra del menú.    |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de configuración. |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | Maneja la acción de cerrar sesión.                      |
+| `lblAlumnosMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Alumnos". |
+| `lblAlumnosMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Alumnos". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblMateriasMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Materias". |
+| `lblMateriasMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Materias". |
+| `lblAlumnosMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de alumnos.  |
+| `lblTutoresMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de tutores.  |
+| `lblMateriasMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de materias.  |
+| `menuNuevoAdminActionPerformed(ActionEvent evt)` | Maneja la acción de agregar un nuevo administrador.      |
+| `menuBarrasMouseClicked(MouseEvent e)` | Maneja la acción de hacer clic en la barra del menú.    |
+
+#### Clase MenuPrincipalTutor
+##### Descripción de la clase `MenuPrincipalTutor`
+
+La clase `MenuPrincipalTutor` representa la ventana principal para los tutores en la aplicación. Proporciona un menú para acceder a diferentes secciones, como sus clases, recursos y alumnos, además de incluir opciones de configuración y cierre de sesión.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `lblmenuBarras`              | `JLabel`                  | Etiqueta que muestra un icono para el menú.           |
+| `menuba`                     | `ImageIcon`               | Icono del menú que se utiliza en la interfaz.         |
+| `configclick`                | `boolean`                 | Indica si el menú de opciones de configuración está visible. |
+| `usuario`                    | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+| `usuarios`                   | `AccesoUsuarios`          | Clase que maneja el acceso a los datos de usuarios.   |
+| `tutor`                      | `Tutor`                   | Objeto que representa al tutor autenticado.            |
+| `tutores`                    | `AccesoTutores`           | Clase que maneja el acceso a los datos de tutores.    |
+| `correo`                     | `String`                  | Correo electrónico del tutor.                          |
+| `logear`                     | `Loggin`                  | Objeto para manejar el inicio de sesión.               |
+| `hola`                       | `String`                  | Almacena el correo electrónico del usuario.            |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `MenuPrincipalTutor()`               | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+| `obtenerCorreo(String s)`            | `void`     | Obtiene y almacena el correo electrónico del usuario y carga sus datos. |
+| `asignarUsuario(Usuario usuario)`    | `void`     | Asigna un usuario a la interfaz y muestra su nombre.       |
+| `obtenerTutor()`                     | `Tutor`    | Obtiene y devuelve el tutor asociado al usuario actual.    |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | `void` | Oculta el menú y muestra la barra de menú.               |
+| `lblConfigMouseClicked(MouseEvent evt)` | `void` | Muestra u oculta el menú de opciones de configuración.    |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | `void` | Cierra sesión y regresa a la ventana de inicio de sesión. |
+| `lblMisClasesMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Mis Clases". |
+| `lblMisClasesMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Mis Clases". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblMateriasMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Materias". |
+| `lblMateriasMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Materias". |
+| `lblMisClasesMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de clases y cierra la ventana actual.   |
+| `lblTutoresMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de recursos y cierra la ventana actual.  |
+| `lblMateriasMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de alumnos y cierra la ventana actual.   |
+| `menuBarrasMouseClicked(MouseEvent e)` | `void` | Muestra el panel del menú y oculta la barra del menú.    |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de configuración. |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | Maneja la acción de cerrar sesión.                      |
+| `lblMisClasesMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Mis Clases". |
+| `lblMisClasesMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Mis Clases". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblMateriasMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Materias". |
+| `lblMateriasMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Materias". |
+| `lblMisClasesMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de mis clases.  |
+| `lblTutoresMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de tutores.  |
+| `lblMateriasMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de materias.  |
+| `menuBarrasMouseClicked(MouseEvent e)` | Maneja la acción de hacer clic en la barra del menú.    |
+
+#### Clase VentanaAlumnos
+##### Descripción de la clase `VentanaAlumnos`
+
+La clase `VentanaAlumnos` gestiona la interfaz gráfica para el manejo de la información de los alumnos en la aplicación. Permite realizar operaciones como agregar, buscar, eliminar y actualizar los datos de los alumnos, mostrando la información en una tabla.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `lblmenuBarras`              | `JLabel`                  | Etiqueta que muestra un icono para el menú.           |
+| `menuba`                     | `ImageIcon`               | Icono del menú que se utiliza en la interfaz.         |
+| `configclick`                | `boolean`                 | Indica si el menú de opciones de configuración está visible. |
+| `materias`                   | `AsignarMaterias`         | Instancia para gestionar las materias.                |
+| `agregar`                    | `AgregarAlumno`           | Instancia que maneja el diálogo para agregar un nuevo alumno. |
+| `usuario`                    | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+| `alumno`                     | `Alumno`                  | Objeto que representa al alumno actualmente seleccionado. |
+| `alumnoSeleccionado`         | `Alumno`                  | Alumno actualmente seleccionado en la tabla.           |
+| `eleccioAlumno`              | `Alumno`                  | Alumno seleccionado por el usuario.                    |
+| `alumnos`                    | `AccesoAlumnos`          | Clase que maneja el acceso a los datos de alumnos.    |
+| `modelon`                    | `DefaultTableModel`       | Modelo de tabla para la visualización de alumnos.      |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `VentanaAlumnos()`                   | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+| `asignarUsuario(Usuario usuario)`    | `void`     | Asigna un usuario a la interfaz y actualiza la vista.      |
+| `cargarDatos()`                      | `void`     | Carga la lista de alumnos desde la base de datos y la muestra en la tabla. |
+| `buscarAlumno()`                     | `void`     | Busca un alumno por número de control y actualiza la tabla con la información encontrada. |
+| `obtenerAlumnoSeleccionado()`        | `Alumno`   | Obtiene el alumno seleccionado en la tabla para operaciones posteriores. |
+| `btnRegistroActionPerformed(...)`    | `void`     | Muestra el diálogo para agregar un nuevo alumno.           |
+| `btnEliminarActionPerformed(...)`    | `void`     | Elimina al alumno seleccionado tras confirmación.          |
+| `btnActualizarActionPerformed(...)`  | `void`     | Actualiza los datos del alumno seleccionado.               |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | `void` | Oculta el menú y muestra la barra de menú.               |
+| `menuBarrasMouseClicked(MouseEvent e)` | `void` | Muestra el panel del menú y oculta la barra del menú.    |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `menuBarrasMouseClicked(MouseEvent e)` | Maneja la acción de hacer clic en la barra del menú.    |
+
+#### Clase VentanaAlumnosTutor
+Descripción de la clase `VentanaAlumnosTutor`
+
+La clase `VentanaAlumnosTutor` representa la ventana principal para que un tutor gestione a sus alumnos y materias. Proporciona una interfaz para seleccionar materias y alumnos, además de mostrar información relevante sobre ellos.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `lblmenuBarras`              | `JLabel`                  | Etiqueta que muestra un icono para el menú.           |
+| `menuba`                     | `ImageIcon`               | Icono del menú que se utiliza en la interfaz.         |
+| `configclick`                | `boolean`                 | Indica si el menú de opciones de configuración está visible. |
+| `Asignar`                    | `CrearCurso`              | Objeto para asignar un nuevo curso.                   |
+| `usuario`                    | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+| `tutor`                      | `Tutor`                   | Objeto que representa al tutor autenticado.            |
+| `tutores`                    | `AccesoTutores`           | Clase que maneja el acceso a los datos de tutores.    |
+| `cursos`                     | `AccesoCursos`           | Clase que maneja el acceso a los datos de cursos.     |
+| `curso`                      | `Curso`                   | Objeto que representa un curso.                        |
+| `materia`                    | `Materia`                 | Objeto que representa una materia.                     |
+| `materias`                   | `AccesoMaterias`          | Clase que maneja el acceso a los datos de materias.   |
+| `listaMaterias`              | `List<Materia>`           | Lista que almacena las materias disponibles.          |
+| `alumno`                     | `Alumno`                  | Objeto que representa un alumno.                       |
+| `alumnos`                    | `AccesoAlumnos`           | Clase que maneja el acceso a los datos de alumnos.    |
+| `listaAlumnos`               | `List<Alumno>`            | Lista que almacena los alumnos disponibles.           |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `VentanaAlumnosTutor()`              | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+| `asignarUsuario(Usuario usuario)`    | `void`     | Asigna un usuario a la interfaz y muestra su nombre.       |
+| `asignarTutor(Tutor tutor, int id)`  | `void`     | Asigna un tutor a la interfaz y carga sus cursos y alumnos. |
+| `obtenerTutor()`                     | `Tutor`    | Obtiene y devuelve el tutor asociado al usuario actual.    |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | `void` | Oculta el menú y muestra la barra de menú.               |
+| `lblConfigMouseClicked(MouseEvent evt)` | `void` | Muestra u oculta el menú de opciones de configuración.    |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | `void` | Cierra sesión y regresa a la ventana de inicio de sesión. |
+| `lblHogarMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblAlumnosMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Alumnos". |
+| `lblAlumnosMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Alumnos". |
+| `lblHogarMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de menú principal y cierra la ventana actual. |
+| `lblTutoresMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de clases y cierra la ventana actual.   |
+| `lblAlumnosMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de recursos y cierra la ventana actual.  |
+| `cboAlumnosActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de selección de un alumno en el JComboBox. |
+| `menuBarrasMouseClicked(MouseEvent e)` | `void` | Muestra el panel del menú y oculta la barra del menú.    |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de configuración. |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | Maneja la acción de cerrar sesión.                      |
+| `lblHogarMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblAlumnosMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Alumnos". |
+| `lblAlumnosMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Alumnos". |
+| `lblHogarMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de inicio.  |
+| `lblTutoresMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de tutores.  |
+| `lblAlumnosMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de alumnos.  |
+| `cboAlumnosActionPerformed(ActionEvent evt)` | Maneja la acción de selección de un alumno.             |
+| `menuBarrasMouseClicked(MouseEvent e)` | Maneja la acción de hacer clic en la barra del menú.    |
+
+
+#### Clase VentanaMaterias
+Descripción de la clase `VentanaMaterias`
+
+La clase `VentanaMaterias` representa la ventana principal para que un tutor gestione las materias y la asignación de cursos a los tutores. Proporciona una interfaz para seleccionar materias y mostrar información relevante sobre ellas.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `lblmenuBarras`              | `JLabel`                  | Etiqueta que muestra un icono para el menú.           |
+| `menuba`                     | `ImageIcon`               | Icono del menú que se utiliza en la interfaz.         |
+| `configclick`                | `boolean`                 | Indica si el menú de opciones de configuración está visible. |
+| `Asignar`                    | `CrearCurso`              | Objeto para asignar una nueva materia.                |
+| `usuario`                    | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+| `materias`                   | `AccesoMaterias`          | Clase que maneja el acceso a los datos de materias.   |
+| `listaMaterias`              | `List<Materia>`           | Lista que almacena las materias disponibles.          |
+| `materiaSeleccionada`        | `Materia`                 | Objeto que representa la materia seleccionada.        |
+| `curso`                      | `Curso`                   | Objeto que representa un curso.                        |
+| `cursos`                     | `AccesoCursos`            | Clase que maneja el acceso a los datos de cursos.     |
+| `tutor`                      | `Tutor`                   | Objeto que representa un tutor.                       |
+| `tutores`                    | `AccesoTutores`           | Clase que maneja el acceso a los datos de tutores.    |
+| `existe`                     | `boolean`                 | Indica si hay un curso asociado a la materia seleccionada. |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `VentanaMaterias()`                  | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+| `asignarUsuario(Usuario usuario)`    | `void`     | Asigna un usuario a la interfaz y muestra su nombre.       |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `cargarTutores()`                    | `void`     | Carga la lista de tutores desde la base de datos.        |
+| `cargarMaterias()`                   | `void`     | Carga la lista de materias desde la base de datos.       |
+| `obtenerMateriaSeleccionada()`       | `void`     | Obtiene la materia seleccionada del JComboBox.           |
+| `actualizarInformacion()`            | `void`     | Actualiza la información sobre la materia y su tutor.     |
+| `lblRetrocederMouseClicked(MouseEvent evt)` | `void` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | `void` | Muestra u oculta el menú de opciones de configuración.    |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | `void` | Cierra sesión y regresa a la ventana de inicio de sesión. |
+| `lblHogarMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblAlumnosMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Alumnos". |
+| `lblAlumnosMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Alumnos". |
+| `lblHogarMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de menú principal y cierra la ventana actual. |
+| `lblTutoresMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de tutores y cierra la ventana actual.   |
+| `lblAlumnosMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de alumnos y cierra la ventana actual.   |
+| `btnAsignarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de asignar una materia a un tutor.      |
+| `cboMateriasActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de selección de una materia.            |
+| `menuCrearAdminActionPerformed(ActionEvent evt)` | `void` | Abre la ventana para agregar un administrador.           |
+| `menuBarrasMouseClicked(MouseEvent e)` | `void` | Muestra el panel del menú y oculta la barra del menú.    |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de configuración. |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | Maneja la acción de cerrar sesión.                      |
+| `lblHogarMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblAlumnosMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Alumnos". |
+| `lblAlumnosMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Alumnos". |
+| `lblHogarMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de inicio.  |
+| `lblTutoresMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de tutores.  |
+| `lblAlumnosMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de alumnos.  |
+| `btnAsignarActionPerformed(ActionEvent evt)` | Maneja la acción de asignar una materia a un tutor.      |
+| `cboMateriasActionPerformed(ActionEvent evt)` | Maneja la acción de selección de una materia.            |
+| `menuCrearAdminActionPerformed(ActionEvent evt)` | Maneja la acción de abrir la ventana de agregar administrador. |
+| `menuBarrasMouseClicked(MouseEvent e)` | Maneja la acción de hacer clic en la barra del menú.    |
+
+#### Clase VetanaMisClasesTutores
+##### Descripción de la clase `VentanaMisClasesTutores`
+
+La clase `VentanaMisClasesTutores` representa la ventana principal para que un tutor gestione sus clases asignadas. Proporciona una interfaz para visualizar información relevante sobre las clases y las materias que se están impartiendo.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `lblmenuBarras`              | `JLabel`                  | Etiqueta que muestra un icono para el menú.           |
+| `menuba`                     | `ImageIcon`               | Icono del menú que se utiliza en la interfaz.         |
+| `configclick`                | `boolean`                 | Indica si el menú de opciones de configuración está visible. |
+| `usuario`                    | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+| `clases`                     | `AccesoClases`           | Clase que maneja el acceso a los datos de las clases.  |
+| `listaClases`                | `List<Clase>`             | Lista que almacena las clases asignadas al tutor.      |
+| `claseSeleccionada`          | `Clase`                   | Objeto que representa la clase seleccionada.          |
+| `materia`                    | `Materia`                 | Objeto que representa la materia de la clase.         |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `VentanaMisClasesTutores()`          | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+| `asignarUsuario(Usuario usuario)`    | `void`     | Asigna un usuario a la interfaz y muestra su nombre.       |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `cargarClases()`                     | `void`     | Carga la lista de clases desde la base de datos.         |
+| `obtenerClaseSeleccionada()`         | `void`     | Obtiene la clase seleccionada del JComboBox.             |
+| `actualizarInformacion()`            | `void`     | Actualiza la información sobre la clase seleccionada.     |
+| `lblRetrocederMouseClicked(MouseEvent evt)` | `void` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | `void` | Muestra u oculta el menú de opciones de configuración.    |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | `void` | Cierra sesión y regresa a la ventana de inicio de sesión. |
+| `lblHogarMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `btnVerDetallesActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de ver detalles de la clase seleccionada. |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de configuración. |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | Maneja la acción de cerrar sesión.                      |
+| `lblHogarMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `btnVerDetallesActionPerformed(ActionEvent evt)` | Maneja la acción de ver detalles de la clase seleccionada. |
+
+#### Clase VentanaRecursos
+##### Descripción de la clase `VentanaRecursos`
+
+La clase `VentanaRecursos` representa la ventana principal donde un tutor puede gestionar recursos y acceder a diferentes funcionalidades. Proporciona una interfaz para mostrar un menú de opciones, abrir archivos PDF y navegar entre diferentes secciones relacionadas con la gestión de clases y alumnos.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `lblmenuBarras`              | `JLabel`                  | Etiqueta que muestra un icono para el menú.           |
+| `menuba`                     | `ImageIcon`               | Icono del menú que se utiliza en la interfaz.         |
+| `configclick`                | `boolean`                 | Indica si el menú de opciones de configuración está visible. |
+| `Asignar`                    | `CrearCurso`              | Objeto para asignar un nuevo curso.                   |
+| `usuario`                    | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+| `tutor`                      | `Tutor`                   | Objeto que representa al tutor.                       |
+| `tutores`                    | `AccesoTutores`           | Clase que maneja el acceso a los datos de tutores.    |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `VentanaRecursos()`                  | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+| `asignarUsuario(Usuario usuario)`    | `void`     | Asigna un usuario a la interfaz y muestra su nombre.       |
+| `obtenerTutor()`                     | `Tutor`    | Obtiene el tutor correspondiente al usuario autenticado.    |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `mostrarPdf()`                       | `void`     | Muestra un diálogo para seleccionar un archivo PDF y lo abre. |
+| `lblRetrocederMouseClicked(MouseEvent evt)` | `void` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | `void` | Muestra u oculta el menú de opciones de configuración.    |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | `void` | Cierra sesión y regresa a la ventana de inicio de sesión. |
+| `lblHogarMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblAlumnosMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Alumnos". |
+| `lblAlumnosMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Alumnos". |
+| `lblHogarMouseClicked(MouseEvent evt)` | `void` | Abre la ventana del menú principal y cierra la ventana actual. |
+| `lblTutoresMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de clases del tutor y cierra la ventana actual.   |
+| `lblAlumnosMouseClicked(MouseEvent evt)` | `void` | Abre la ventana de alumnos y cierra la ventana actual.   |
+| `lblAbrirPDFMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del borde al pasar el mouse sobre el botón de abrir PDF. |
+| `lblAbrirPDFMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del borde al salir el mouse sobre el botón de abrir PDF. |
+| `lblAbrirPDFMouseClicked(MouseEvent evt)` | `void` | Maneja la acción de abrir un archivo PDF.                |
+| `menuBarrasMouseClicked(MouseEvent e)` | `void` | Maneja la acción de hacer clic en la barra del menú.    |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de configuración. |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | Maneja la acción de cerrar sesión.                      |
+| `lblHogarMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `lblTutoresMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Tutores". |
+| `lblTutoresMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Tutores". |
+| `lblAlumnosMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Alumnos". |
+| `lblAlumnosMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Alumnos". |
+| `lblHogarMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de inicio.  |
+| `lblTutoresMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de tutores.  |
+| `lblAlumnosMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de alumnos.  |
+| `lblAbrirPDFMouseEntered(MouseEvent evt)` | Maneja la acción de pasar el mouse sobre el botón de abrir PDF. |
+| `lblAbrirPDFMouseExited(MouseEvent evt)` | Maneja la acción de salir el mouse sobre el botón de abrir PDF. |
+| `lblAbrirPDFMouseClicked(MouseEvent evt)` | Maneja la acción de abrir un archivo PDF.                |
+| `menuBarrasMouseClicked(MouseEvent e)` | Maneja la acción de hacer clic en la barra del menú.    |
+
+
+#### Clase VentanaTutores
+##### Descripción de la clase `VentanaTutores`
+
+La clase `VentanaTutores` representa la ventana principal para que un tutor gestione su información y los tutores registrados. Proporciona una interfaz para visualizar, agregar, buscar, actualizar y eliminar tutores.
+
+##### Atributos
+| Atributo                     | Tipo                       | Descripción                                           |
+|------------------------------|---------------------------|-------------------------------------------------------|
+| `lblmenuBarras`              | `JLabel`                  | Etiqueta que muestra un icono para el menú.           |
+| `menuba`                     | `ImageIcon`               | Icono del menú que se utiliza en la interfaz.         |
+| `configclick`                | `boolean`                 | Indica si el menú de opciones de configuración está visible. |
+| `usuario`                    | `Usuario`                 | Objeto que representa al usuario autenticado.          |
+| `tutor`                      | `Tutor`                   | Objeto que representa al tutor.                        |
+| `tutorSeleccionado`          | `Tutor`                   | Objeto que representa el tutor seleccionado.          |
+| `tutores`                    | `AccesoTutores`          | Clase que maneja el acceso a los datos de los tutores. |
+| `agregar`                    | `AgregarTutor`            | Diálogo para agregar un nuevo tutor.                   |
+
+##### Métodos públicos
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `VentanaTutores()`                   | `void`     | Constructor que inicializa la ventana y sus componentes.   |
+| `asignarUsuario(Usuario usuario)`    | `void`     | Asigna un usuario a la interfaz y muestra su nombre.       |
+
+##### Métodos privados
+| Método                               | Retorno    | Descripción                                               |
+|--------------------------------------|------------|-----------------------------------------------------------|
+| `cargarDatos()`                      | `void`     | Carga la lista de tutores desde la base de datos.       |
+| `buscarTutor()`                      | `void`     | Busca un tutor por su RFC y actualiza la tabla.         |
+| `obtenerTutorSeleccionado()`         | `void`     | Obtiene el tutor seleccionado de la tabla.              |
+| `lblRetrocederMouseClicked(MouseEvent evt)` | `void` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | `void` | Muestra u oculta el menú de opciones de configuración.    |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | `void` | Cierra sesión y regresa a la ventana de inicio de sesión. |
+| `lblHogarMouseEntered(MouseEvent evt)` | `void` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | `void` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `btnEliminarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de eliminar el tutor seleccionado. |
+| `btnActualizarTutorActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de actualizar el tutor seleccionado. |
+
+##### Eventos
+| Método                                | Descripción                                               |
+|---------------------------------------|-----------------------------------------------------------|
+| `lblRetrocederMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de retroceso. |
+| `lblConfigMouseClicked(MouseEvent evt)` | Maneja la acción de hacer clic en el botón de configuración. |
+| `menuoptCerrarActionPerformed(ActionEvent evt)` | Maneja la acción de cerrar sesión.                      |
+| `lblHogarMouseEntered(MouseEvent evt)` | Cambia el estilo del texto al pasar el mouse sobre "Inicio". |
+| `lblHogarMouseExited(MouseEvent evt)` | Restaura el estilo del texto al salir el mouse sobre "Inicio". |
+| `btnEliminarActionPerformed(ActionEvent evt)` | Maneja la acción de eliminar el tutor seleccionado. |
+| `btnActualizarTutorActionPerformed(ActionEvent evt)` | Maneja la acción de actualizar el tutor seleccionado. |
+
+
+## Vista
