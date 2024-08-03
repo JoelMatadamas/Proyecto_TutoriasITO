@@ -299,7 +299,242 @@ La clase `ValidacionNumero` proporciona métodos para validar la longitud de nú
 | `validarLongitud(String)`    | `boolean`  | `String numero`     | Valida que la longitud de un número sea exactamente 10 caracteres. |
 | `ValidanumC(String)`         | `boolean`  | `String n`          | Valida que la longitud de un número sea exactamente 8 caracteres. |
 
+
 ### Paquete paquetegrafico
-#### Clase
+#### Clase AgregarAdmin
+##### Descripción de la clase `AgregarAdmin`
 
+La clase `AgregarAdmin` es un cuadro de diálogo que permite agregar un nuevo administrador al sistema. Esta clase realiza validaciones en los campos de entrada para asegurar que el correo electrónico y la contraseña cumplen con los criterios establecidos.
 
+##### Atributos
+| Atributo               | Tipo                       | Descripción                                             |
+|------------------------|---------------------------|---------------------------------------------------------|
+| `validarContra`        | `ValidacionContra`        | Objeto para validar las contraseñas ingresadas.        |
+| `validarCorreo`        | `ValidacionCorreo`        | Objeto para validar correos electrónicos.              |
+| `usuario`              | `Usuario`                 | Objeto que representa al usuario que se está agregando.|
+| `usuarios`             | `AccesoUsuarios`          | Objeto para manejar el acceso a la base de datos de usuarios. |
+| `confi`                | `Confirmacion`            | Objeto para manejar la ventana de confirmación.        |
+| `c1`, `c2`, `c3`, `c4`, `c5` | `boolean`               | Flags para controlar el estado de las validaciones.     |
+
+##### Métodos públicos
+| Método                             | Retorno    | Descripción                                                      |
+|------------------------------------|------------|------------------------------------------------------------------|
+| `AgregarAdmin(Frame parent, boolean modal)` | `void`   | Constructor que inicializa el cuadro de diálogo y sus componentes. |
+| `main(String[] args)`              | `void`     | Método principal que ejecuta la aplicación.                      |
+| `btnAceptarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de aceptar, validando y agregando un nuevo administrador. |
+| `btnCancelarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de cancelar, cerrando el cuadro de diálogo.      |
+
+##### Eventos
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `txtCorreoKeyReleased(KeyEvent evt)`  | Valida el correo electrónico ingresado mientras se teclea.      |
+| `txtContraKeyReleased(KeyEvent evt)`  | Valida la contraseña ingresada mientras se teclea.              |
+| `txtRepContraKeyReleased(KeyEvent evt)` | Valida que la contraseña repetida coincida con la original.     |
+| `txtCorreoMouseClicked(MouseEvent evt)` | Limpia el campo de correo cuando se hace clic.                  |
+| `txtContraMouseClicked(MouseEvent evt)` | Limpia el campo de contraseña cuando se hace clic.              |
+| `txtRepContraMouseClicked(MouseEvent evt)` | Limpia el campo de repetición de contraseña cuando se hace clic. |
+
+#### Clase AgregarAlumno
+##### Descripción de la clase `AgregarAlumno`
+
+La clase `AgregarAlumno` es un cuadro de diálogo que permite agregar un nuevo alumno al sistema. Esta clase realiza validaciones en los campos de entrada para asegurar que los datos ingresados cumplen con los criterios establecidos.
+
+##### Atributos
+| Atributo               | Tipo                       | Descripción                                             |
+|------------------------|---------------------------|---------------------------------------------------------|
+| `NumControl`           | `int`                     | Número de control del alumno.                           |
+| `Nombre`               | `String`                  | Nombre del alumno.                                      |
+| `ApellidoPaterno`      | `String`                  | Apellido paterno del alumno.                            |
+| `ApellidoMaterno`      | `String`                  | Apellido materno del alumno.                            |
+| `Semestre`             | `int`                     | Semestre actual del alumno.                             |
+| `carrera`              | `String`                  | Carrera del alumno.                                     |
+| `correo`               | `String`                  | Correo electrónico del alumno.                          |
+| `confi`                | `Confirmacion`            | Objeto para manejar la ventana de confirmación.        |
+| `valnum`               | `ValidacionNumero`        | Objeto para validar el número de control ingresado.    |
+
+##### Métodos públicos
+| Método                             | Retorno    | Descripción                                                      |
+|------------------------------------|------------|------------------------------------------------------------------|
+| `AgregarAlumno(Frame parent, boolean modal)` | `void`   | Constructor que inicializa el cuadro de diálogo y sus componentes. |
+| `main(String[] args)`              | `void`     | Método principal que ejecuta la aplicación.                      |
+| `btnAceptarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de aceptar, validando y agregando un nuevo alumno. |
+| `btnCancelarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de cancelar, cerrando el cuadro de diálogo.      |
+
+##### Eventos
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `txtNombreMouseClicked(MouseEvent evt)`  | Limpia el campo de nombre cuando se hace clic.                  |
+| `txtApPaternoMouseClicked(MouseEvent evt)` | Limpia el campo de apellido paterno cuando se hace clic.        |
+| `txtApMaternoMouseClicked(MouseEvent evt)` | Limpia el campo de apellido materno cuando se hace clic.        |
+| `txtSemestreMouseClicked(MouseEvent evt)` | Limpia el campo de semestre cuando se hace clic.                |
+| `btnAceptarActionPerformed(ActionEvent evt)` | Valida y agrega un nuevo alumno si los campos son válidos.     |
+| `btnCancelarActionPerformed(ActionEvent evt)` | Cierra el cuadro de diálogo.                                   |
+| `txtSemestreKeyTyped(KeyEvent evt)`         | Permite solo caracteres numéricos en el campo de semestre.    |
+| `txtNombreKeyTyped(KeyEvent evt)`           | Permite solo caracteres alfabéticos en el campo de nombre.    |
+| `txtApPaternoKeyTyped(KeyEvent evt)`        | Permite solo caracteres alfabéticos en el campo de apellido paterno. |
+| `txtApMaternoKeyTyped(KeyEvent evt)`        | Permite solo caracteres alfabéticos en el campo de apellido materno. |
+| `txtCorreoMouseClicked(MouseEvent evt)`     | Limpia el campo de correo cuando se hace clic.                  |
+| `txtNumControlMouseClicked(MouseEvent evt)`  | Limpia el campo de número de control cuando se hace clic.       |
+| `txtNumControlKeyReleased(KeyEvent evt)`     | Valida el número de control ingresado y cambia su color.        |
+| `txtNumControlKeyTyped(KeyEvent evt)`        | Permite solo caracteres numéricos en el campo de número de control. |
+
+##### Getters
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `getNombre()`                         | Retorna el nombre del alumno.                                   |
+| `getApellidoPaterno()`                | Retorna el apellido paterno del alumno.                         |
+| `getApellidoMaterno()`                | Retorna el apellido materno del alumno.                         |
+| `getSemestre()`                       | Retorna el semestre del alumno.                                 |
+| `getCarrera()`                        | Retorna la carrera del alumno.                                  |
+
+#### Clase AgregarTutor
+##### Descripción de la clase `AgregarTutor`
+
+La clase `AgregarTutor` es un cuadro de diálogo que permite agregar un nuevo tutor al sistema. Esta clase realiza validaciones en los campos de entrada para asegurar que los datos ingresados cumplen con los criterios establecidos.
+
+##### Atributos
+| Atributo               | Tipo                       | Descripción                                             |
+|------------------------|---------------------------|---------------------------------------------------------|
+| `Nombre`               | `String`                  | Nombre del tutor.                                      |
+| `ApellidoPaterno`      | `String`                  | Apellido paterno del tutor.                            |
+| `ApellidoMaterno`      | `String`                  | Apellido materno del tutor.                            |
+| `rfc`                  | `int`                     | RFC del tutor.                                        |
+| `numContacto`          | `String`                  | Número de contacto del tutor.                          |
+| `correo`               | `String`                  | Correo electrónico del tutor.                          |
+| `confi`                | `Confirmacion`            | Objeto para manejar la ventana de confirmación.        |
+| `usuarios`             | `AccesoUsuarios`          | Objeto para acceder a la base de datos de usuarios.    |
+| `usuario`              | `Usuario`                 | Objeto que representa al usuario que se está agregando.|
+| `b1`, `b2`, `b3`, `b4`, `b5`, `b6` | `boolean` | Variables para controlar la interacción del usuario con los campos de texto. |
+
+##### Métodos públicos
+| Método                             | Retorno    | Descripción                                                      |
+|------------------------------------|------------|------------------------------------------------------------------|
+| `AgregarTutor(Frame parent, boolean modal)` | `void`   | Constructor que inicializa el cuadro de diálogo y sus componentes. |
+| `main(String[] args)`              | `void`     | Método principal que ejecuta la aplicación.                      |
+| `btnAceptarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de aceptar, validando y agregando un nuevo tutor. |
+| `btnCancelarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de cancelar, cerrando el cuadro de diálogo.      |
+
+##### Eventos
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `txtNombreMouseClicked(MouseEvent evt)`  | Limpia el campo de nombre cuando se hace clic.                  |
+| `txtApPaternoMouseClicked(MouseEvent evt)` | Limpia el campo de apellido paterno cuando se hace clic.        |
+| `txtApMaternoMouseClicked(MouseEvent evt)` | Limpia el campo de apellido materno cuando se hace clic.        |
+| `txtRfcMouseClicked(MouseEvent evt)`       | Limpia el campo de RFC cuando se hace clic.                    |
+| `txtnumContMouseClicked(MouseEvent evt)`   | Limpia el campo de número de contacto cuando se hace clic.      |
+| `btnAceptarActionPerformed(ActionEvent evt)` | Valida y agrega un nuevo tutor si los campos son válidos.     |
+| `btnCancelarActionPerformed(ActionEvent evt)` | Cierra el cuadro de diálogo.                                   |
+| `txtRfcKeyTyped(KeyEvent evt)`             | Permite solo caracteres numéricos en el campo de RFC.         |
+| `txtnumContKeyTyped(KeyEvent evt)`         | Permite solo caracteres numéricos en el campo de número de contacto. |
+| `txtNombreKeyTyped(KeyEvent evt)`           | Permite solo caracteres alfabéticos en el campo de nombre.    |
+| `txtApPaternoKeyTyped(KeyEvent evt)`        | Permite solo caracteres alfabéticos en el campo de apellido paterno. |
+| `txtApMaternoKeyTyped(KeyEvent evt)`        | Permite solo caracteres alfabéticos en el campo de apellido materno. |
+| `txtCorreoMouseClicked(MouseEvent evt)`     | Limpia el campo de correo cuando se hace clic.                  |
+| `txtCorreoKeyReleased(KeyEvent evt)`        | Valida el correo electrónico ingresado y cambia su color.       |
+
+##### Getters
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `getNombre()`                         | Retorna el nombre del tutor.                                   |
+| `getApellidoPaterno()`                | Retorna el apellido paterno del tutor.                         |
+| `getApellidoMaterno()`                | Retorna el apellido materno del tutor.                         |
+| `getRFC()`                           | Retorna el RFC del tutor.                                      |
+| `getNumContacto()`                    | Retorna el número de contacto del tutor.                        |
+| `getCorreo()`                         | Retorna el correo electrónico del tutor.                       |
+
+#### Clase AsignarMaterias:
+##### Descripción de la clase `AsignarMaterias`
+
+La clase `AsignarMaterias` es responsable de la asignación de materias a un alumno en el sistema. Esta clase interactúa con la base de datos para obtener la lista de materias disponibles y permitir que el administrador seleccione las materias que desea asignar a un alumno.
+
+##### Atributos
+| Atributo               | Tipo                       | Descripción                                             |
+|------------------------|---------------------------|---------------------------------------------------------|
+| `materias`             | `ArrayList<Materia>`      | Lista de materias disponibles para asignar.             |
+| `usuario`              | `Usuario`                 | Objeto que representa al tutor al que se le asignarán materias. |
+| `cursos`               | `ArrayList<Curso>`        | Lista de cursos a los que se pueden asignar las materias. |
+| `accesoMaterias`       | `AccesoMaterias`          | Objeto para acceder a la base de datos de materias.     |
+| `accesoCursos`        | `AccesoCursos`            | Objeto para acceder a la base de datos de cursos.       |
+| `jTable`               | `JTable`                  | Tabla para mostrar las materias disponibles.            |
+| `btnAsignar`           | `JButton`                 | Botón para confirmar la asignación de materias.         |
+| `btnCancelar`          | `JButton`                 | Botón para cancelar la asignación de materias.          |
+
+##### Métodos públicos
+| Método                             | Retorno    | Descripción                                                      |
+|------------------------------------|------------|------------------------------------------------------------------|
+| `AsignarMaterias(Frame parent, boolean modal)` | `void`   | Constructor que inicializa el cuadro de diálogo y sus componentes. |
+| `main(String[] args)`              | `void`     | Método principal que ejecuta la aplicación.                      |
+| `btnAsignarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de asignar, validando y guardando la asignación. |
+| `btnCancelarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de cancelar, cerrando el cuadro de diálogo.      |
+
+##### Eventos
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `btnAsignarActionPerformed(ActionEvent evt)` | Valida y asigna las materias seleccionadas al tutor.          |
+| `btnCancelarActionPerformed(ActionEvent evt)` | Cierra el cuadro de diálogo sin realizar cambios.              |
+| `jTableMouseClicked(MouseEvent evt)` | Permite la selección de materias en la tabla.                  |
+| `btnAsignarMouseEntered(MouseEvent evt)` | Cambia el color del botón al pasar el mouse.                 |
+| `btnAsignarMouseExited(MouseEvent evt)` | Restaura el color original del botón al salir el mouse.      |
+
+##### Getters
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `getMaterias()`                      | Retorna la lista de materias disponibles para asignar.         |
+| `getUsuario()`                       | Retorna el objeto usuario que representa al tutor.              |
+| `getCursos()`                        | Retorna la lista de cursos a los que se pueden asignar las materias. |
+
+#### Clase Confirmacion
+##### Descripción de la clase `Confirmacion`
+
+La clase `Confirmacion` es un cuadro de diálogo que solicita al usuario una confirmación antes de realizar una acción. Esta clase proporciona dos opciones: aceptar o cancelar, y almacena la elección del usuario.
+
+##### Atributos
+| Atributo               | Tipo                       | Descripción                                             |
+|------------------------|---------------------------|---------------------------------------------------------|
+| `elegido`              | `boolean`                 | Indica la elección del usuario: `true` para cancelar, `false` para aceptar. |
+
+##### Métodos públicos
+| Método                             | Retorno    | Descripción                                                      |
+|------------------------------------|------------|------------------------------------------------------------------|
+| `Confirmacion(Frame parent, boolean modal)` | `void`   | Constructor que inicializa el cuadro de diálogo y sus componentes. |
+| `main(String[] args)`              | `void`     | Método principal que ejecuta la aplicación.                      |
+| `btnCancelarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de cancelar, cerrando el cuadro de diálogo y estableciendo `elegido` en `true`. |
+| `btnAceptarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de aceptar, cerrando el cuadro de diálogo y estableciendo `elegido` en `false`. |
+
+##### Métodos de acceso
+| Método                                | Descripción                                                      |
+|---------------------------------------|------------------------------------------------------------------|
+| `eleccion()`                         | Retorna el valor de `elegido`, indicando la elección del usuario. |
+
+#### Clase CrearCurso
+##### Descripción de la clase `CrearCurso`
+
+La clase `CrearCurso` es un cuadro de diálogo que permite a los usuarios crear y asignar un nuevo curso a un tutor seleccionado. Proporciona opciones para elegir un tutor y especificar detalles del curso, como la materia, horario y aula.
+
+##### Atributos
+| Atributo               | Tipo                       | Descripción                                             |
+|------------------------|---------------------------|---------------------------------------------------------|
+| `Tutor`                | `String`                  | Nombre del tutor seleccionado.                          |
+| `tutor`                | `Tutor`                   | Objeto que representa al tutor seleccionado.            |
+| `tutores`             | `AccesoTutores`          | Objeto para acceder a la base de datos de tutores.     |
+| `listaTutores`        | `List<Tutor>`             | Lista de tutores disponibles para seleccionar.          |
+| `materia`             | `Materia`                 | Objeto que representa la materia asociada al curso.     |
+| `cursos`              | `AccesoCursos`            | Objeto para acceder a la base de datos de cursos.      |
+| `confi`               | `Confirmacion`            | Objeto para manejar la ventana de confirmación.        |
+| `c1`                  | `boolean`                 | Variable para controlar el estado del campo de texto del aula. |
+
+##### Métodos públicos
+| Método                             | Retorno    | Descripción                                                      |
+|------------------------------------|------------|------------------------------------------------------------------|
+| `CrearCurso(Frame parent, boolean modal)` | `void`   | Constructor que inicializa el cuadro de diálogo y sus componentes. |
+| `asignarMateria(Materia materia)`  | `void`     | Asigna la materia al curso y actualiza los labels correspondientes. |
+| `getTutor()`                       | `String`   | Retorna el nombre del tutor seleccionado.                         |
+| `btnAceptarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de aceptar, validando los datos y creando un nuevo curso. |
+| `btnCancelarActionPerformed(ActionEvent evt)` | `void` | Maneja la acción de cancelar, cerrando el cuadro de diálogo.      |
+
+##### Métodos privados
+| Método                             | Descripción                                                      |
+|------------------------------------|------------------------------------------------------------------|
+| `actualizarLabels()`               | Actualiza los labels con la información de la materia seleccionada. |
+| `cargarTutores()`                  | Carga los tutores disponibles en el `cboTutor` desde la base de datos. |
+| `txtAulaMouseClicked(MouseEvent evt)` | Limpia el campo de texto del aula cuando se hace clic.       |
