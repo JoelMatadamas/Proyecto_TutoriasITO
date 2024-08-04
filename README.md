@@ -27,7 +27,7 @@ En la versión para tutores, el programa presenta los cursos que han sido asigna
 
 Para utilizar el programa de tutorías en Java, siga las instrucciones detalladas a continuación. Al iniciar la aplicación, se le pedirá que ingrese su nombre de usuario y contraseña en la pantalla de inicio de sesión. Dependiendo de su nivel de acceso, será dirigido a la versión correspondiente del programa: administrador o tutor.
 
-### Video de funcionalidad : https://youtu.be/KbsrIAhFncg
+### Video de funcionalidad : https://youtu.be/vJdvU05lM50
 
 
 ### Para Administradores:
